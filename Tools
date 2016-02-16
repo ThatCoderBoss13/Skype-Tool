@@ -1,0 +1,110 @@
+Imports SKYPE4COMLib
+
+Public Class Tools
+    Dim Skype As New SKYPE4COMLib.Skype
+    Private Sub LinkLabel1_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs)
+        MessageBox.Show("This sends a chat message of your choice in intervals. Great for announcements or status updates!")
+    End Sub
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
+        
+
+
+
+
+
+    End Sub
+
+    Private Sub LinkLabel2_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs)
+        MessageBox.Show("This is the one and only Conversation Starter! Pick one of each from the drop-boxes, or click one of the presets to strike up a friendly convo!")
+
+    End Sub
+
+    Private Sub ComboBox1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
+    End Sub
+
+    Private Sub TextBox2_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
+
+
+
+
+
+    End Sub
+
+    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
+    End Sub
+
+    Private Sub PictureBox1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox1.Click
+        Skype.CurrentUserStatus = SKYPE4COMLib.TUserStatus.cusOnline
+
+
+    End Sub
+
+    Private Sub PictureBox2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox2.Click
+        Skype.CurrentUserStatus = SKYPE4COMLib.TUserStatus.cusAway
+    End Sub
+
+    Private Sub PictureBox3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox3.Click
+        Skype.CurrentUserStatus = SKYPE4COMLib.TUserStatus.cusDoNotDisturb
+
+    End Sub
+
+    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
+
+
+    End Sub
+
+    Private Sub LinkLabel3_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles LinkLabel3.LinkClicked
+        MsgBox("The mood is your 'state' that your contacts and other people can see.", MsgBoxStyle.Information)
+
+
+    End Sub
+
+    Private Sub Button3_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
+        Skype.CurrentUserProfile.RichMoodText = TextBox3.Text
+
+
+    End Sub
+
+    Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
+    End Sub
+    Dim generator As New Random
+    Dim randomvalue As Integer
+    Private Sub Button4_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
+        If mbot1.Text & mbot2.Text & mbot3.Text & mbot4.Text = "" Then MsgBox("You must enter something in the boxes to continue", MsgBoxStyle.Exclamation)
+        Timer1.Start()
+    End Sub
+
+    Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
+        'I still don't know if this works
+        randomvalue = generator.Next(1, 4)
+            If randomvalue = 1 Then
+                Skype.CurrentUserProfile.MoodText = (mbot1.Text)
+            End If
+            If randomvalue = 2 Then
+                Skype.CurrentUserProfile.MoodText = (mbot2.Text)
+            End If
+            If randomvalue = 3 Then
+                Skype.CurrentUserProfile.MoodText = (mbot3.Text)
+                If randomvalue = 4 Then
+                    Skype.CurrentUserProfile.MoodText = (mbot4.Text)
+                End If
+            End If
+    End Sub
+
+    Private Sub LinkLabel1_LinkClicked_1(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
+        MsgBox("Type in 4 random moods [1 in each box] and click accept. It should then automatically choose a random mood for whatever time you set in settings.", MsgBoxStyle.Information)
+
+    End Sub
+
+    Private Sub Button1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        Timer1.Stop()
+
+    End Sub
+End Class
