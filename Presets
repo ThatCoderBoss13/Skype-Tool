@@ -1,0 +1,131 @@
+Public Class Presets
+    Dim Skype As New SKYPE4COMLib.Skype
+    Private Sub Label2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label2.Click
+        Skype.CurrentUserProfile.RichMoodText = "Chillin'"
+    End Sub
+    Private Sub Label1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label1.Click
+        Skype.CurrentUserProfile.RichMoodText = "Midnight Snacking"
+    End Sub
+    Private Sub Label3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label3.Click
+        Skype.CurrentUserProfile.RichMoodText = "I am the gaming of the plays"
+    End Sub
+    Private Sub Label4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label4.Click
+        Skype.CurrentUserProfile.RichMoodText = "Nothing"
+    End Sub
+    Private Sub Label5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label5.Click
+        Skype.CurrentUserProfile.RichMoodText = "Doing Straddles"
+    End Sub
+    Private Sub Label6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label6.Click
+        Skype.CurrentUserProfile.RichMoodText = "Leaf me Alone!"
+    End Sub
+    Private Sub Label7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label7.Click
+        Skype.CurrentUserProfile.RichMoodText = "It's Saturday"
+    End Sub
+    Private Sub Presets_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+    End Sub
+
+    Private Sub TabPage1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TabPage1.Click
+
+    End Sub
+
+    Private Sub Label10_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label10.Click
+        Skype.CurrentUserProfile.RichMoodText = "I have STANDARDS!"
+    End Sub
+
+    Private Sub Label11_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label11.Click
+        Skype.CurrentUserProfile.RichMoodText = "I'm an Independent Woman!"
+    End Sub
+
+    Private Sub Label12_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label12.Click
+        Skype.CurrentUserProfile.RichMoodText = "Moody"
+    End Sub
+
+    Private Sub Label13_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label13.Click
+        Skype.CurrentUserProfile.RichMoodText = "Daddy?"
+    End Sub
+
+    Private Sub Label14_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label14.Click
+        Skype.CurrentUserProfile.RichMoodText = "I use colored arch skype tool!"
+    End Sub
+
+    Private Sub Label16_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label16.Click
+        Skype.CurrentUserProfile.RichMoodText = "I use Rainbowzz's Colored Arch Skype tool!"
+    End Sub
+
+    Private Sub Label17_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label17.Click
+        Skype.CurrentUserProfile.RichMoodText = "I'm a proud user of the Colored Arch Skype tool!"
+    End Sub
+
+    Private Sub Label18_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        Skype.CurrentUserProfile.RichMoodText = "Get colored arch skype tool! One of the best skype tools around!"
+    End Sub
+
+    Private Sub LinkLabel3_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles LinkLabel3.LinkClicked, LinkLabel2.LinkClicked, LinkLabel1.LinkClicked
+        MsgBox("Messages your input to all of your friends.", MsgBoxStyle.Information)
+    End Sub
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click, Button3.Click, Button2.Click
+        For Each user As SKYPE4COMLib.User In Skype.Friends
+
+            Skype.SendMessage(user.Handle, TextBox3.Text)
+        Next
+        MsgBox("Mass Messaging Successful!")
+    End Sub
+
+    Private Sub Label23_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label23.Click
+        Skype.CurrentUserProfile.RichMoodText = "WOOT WOOT"
+    End Sub
+
+    Private Sub Label24_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label24.Click
+        Skype.CurrentUserProfile.RichMoodText = "Excite"
+    End Sub
+
+    Private Sub Label25_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label25.Click
+        Skype.CurrentUserProfile.RichMoodText = "Thank"
+    End Sub
+
+    Private Sub Label26_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label26.Click
+        Skype.CurrentUserProfile.RichMoodText = "Cheese"
+    End Sub
+
+    Private Sub Label27_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label27.Click
+        Skype.CurrentUserProfile.RichMoodText = "Who doesn't love nutella?"
+    End Sub
+
+    Private Sub Label29_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label29.Click
+        Skype.CurrentUserProfile.RichMoodText = "LOL"
+    End Sub
+
+    Private Sub Label30_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label30.Click
+        Skype.CurrentUserProfile.RichMoodText = "ayy dood"
+    End Sub
+
+    Private Sub Label31_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label31.Click
+        Skype.CurrentUserProfile.RichMoodText = "Eating Dinner"
+    End Sub
+
+    Private Sub Label33_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label33.Click
+        Skype.CurrentUserProfile.RichMoodText = "Eating Breakfast"
+    End Sub
+
+    Private Sub Label32_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label32.Click
+        Skype.CurrentUserProfile.RichMoodText = "Eating Lunch"
+    End Sub
+
+    Private Sub Label34_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label34.Click
+        Skype.CurrentUserProfile.RichMoodText = "Meh"
+    End Sub
+
+    Private Sub Label35_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label35.Click
+        Skype.CurrentUserProfile.RichMoodText = "Ehhhh"
+    End Sub
+
+    Private Sub Label36_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label36.Click
+        Skype.CurrentUserProfile.RichMoodText = "DANCE PARTY (poolparty)"
+    End Sub
+
+    Private Sub Label37_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label37.Click
+        Skype.CurrentUserProfile.RichMoodText = "Ohhh! YEEES!"
+    End Sub
+End Class
