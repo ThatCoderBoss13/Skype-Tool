@@ -1,0 +1,37 @@
+
+Imports System.Net.Mail
+Public Class bugreport
+
+    Private Sub bugreport_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        
+        
+    End Sub
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        'If you're digging through the code and you try to login with my password, I will no longer incorperate a bug reporter.
+        Try
+            Dim message As New MailMessage
+            Dim smtp As New SmtpClient
+            message.To.Add("masterchris2685@gmail.com")
+            message.From = New MailAddress(TextBox2.Text, "ColoredArch Bug Report")
+            message.Subject = ComboBox1.Text
+            message.Body = RichTextBox1.Text
+            smtp.Host = "smtp.gmail.com"
+            smtp.Port = "587"
+            smtp.EnableSsl = True
+            smtp.Credentials = New Net.NetworkCredential("masterchris2685@gmail.com", "ERASED PASSWORD FOR SECURITY PURPOSES")
+            smtp.Send(message)
+            MsgBox("Bug report successfully sent! We will reply within 48 hours to address the bug!")
+
+
+        Catch
+            MsgBox("Error 140: For unknown reasons, the bug reporter has failed to reach smtp servers, please try again later.")
+        End Try
+
+        If RichTextBox1.Text = "" Then MsgBox("Error 90: You can't send a blank email!")
+
+
+
+
+    End Sub
+End Class
