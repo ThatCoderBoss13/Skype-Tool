@@ -1,0 +1,59 @@
+Public Class Settings
+
+    Private Sub RadioButton2_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RadioButton2.CheckedChanged
+        Form1.Label5.ForeColor = Color.LightBlue
+        Form1.Label6.ForeColor = Color.LightBlue
+        Form1.Label7.ForeColor = Color.LightBlue
+        Form1.Label8.ForeColor = Color.LightBlue
+        Credits.Label1.ForeColor = Color.LightBlue
+        Credits.Label2.ForeColor = Color.LightBlue
+        Credits.Label3.ForeColor = Color.LightBlue
+        Tools.Label4.ForeColor = Color.LightBlue
+        Tools.Label5.ForeColor = Color.LightBlue
+        Tools.Label6.ForeColor = Color.LightBlue
+        Tools.Button3.BackColor = Color.LightBlue
+        Tools.Button4.BackColor = Color.LightBlue
+
+
+    End Sub
+
+    Private Sub RadioButton3_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RadioButton3.CheckedChanged
+        Form1.Label5.ForeColor = Color.LimeGreen
+        Form1.Label6.ForeColor = Color.LimeGreen
+        Form1.Label7.ForeColor = Color.LimeGreen
+        Form1.Label8.ForeColor = Color.LimeGreen
+        Credits.Label1.ForeColor = Color.LimeGreen
+        Credits.Label2.ForeColor = Color.LimeGreen
+        Credits.Label3.ForeColor = Color.LimeGreen
+        Tools.Label4.ForeColor = Color.LimeGreen
+        Tools.Label5.ForeColor = Color.LimeGreen
+        Tools.Label6.ForeColor = Color.LimeGreen
+        Tools.Button3.BackColor = Color.LimeGreen
+        Tools.Button4.BackColor = Color.LimeGreen
+
+    End Sub
+
+    Private Sub RadioButton4_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RadioButton4.CheckedChanged
+        'Lookin through the code, thinking the rainbow theme is already out, just hidden? Do something productive, Please!
+        '10029 28893 929839 293480 3948 134 039840
+    End Sub
+
+    Private Sub RadioButton1_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RadioButton1.CheckedChanged
+        
+    End Sub
+
+    Private Sub CheckBox1_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox1.CheckedChanged
+        If CheckBox1.CheckState = CheckState.Checked Then MsgBox("This is only for developers [me] who have to run the program to experiment and find bugs, doing this, you CANNOT go back. Please uncheck this box within 20 seconds to avoid a re-download!", MsgBoxStyle.Critical)
+
+    End Sub
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        If ComboBox1.Text = "10 seconds" Then Tools.Timer1.Interval = 10000 & MsgBox("This is meant for short term use and could annoy your friends, if you don't care, then give it a whirl!")
+        If ComboBox1.Text = "5 Minutes" Then Tools.Timer1.Interval = 500000
+        If ComboBox1.Text = "10 Minutes" Then Tools.Timer1.Interval = 1000000
+        If ComboBox1.Text = "20 Minutes" Then Tools.Timer1.Interval = 2000000
+        If ComboBox1.Text = "40 Minutes" Then Tools.Timer1.Interval = 4000000
+        If ComboBox1.Text = "1 Hour" Then Tools.Timer1.Interval = 360000000
+
+    End Sub
+End Class
