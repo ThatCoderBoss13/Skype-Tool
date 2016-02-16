@@ -1,0 +1,119 @@
+Public Class Form1
+    Dim Skype As New SKYPE4COMLib.Skype
+    Public str_ As String
+    Public count_ As Integer
+
+    Private Sub Timer1_Tick(ByVal sender As Object, ByVal e As EventArgs) Handles Timer1.Tick
+        If Label9.Text.Length = str_.Length Then
+            Timer1.Enabled = False
+            Exit Sub
+        End If
+        Label9.Text = str_.Substring(0, count_)
+        count_ = count_ + 1
+    End Sub
+
+    Private Sub Form1_MouseEnter(ByVal sender As Object, ByVal e As EventArgs) Handles Button1.Click
+        Label9.Text = ""
+        count_ = 1
+        str_ = "Before you can do anything, you need to connect to skype. Please click the 'connect' button in the top right corner."
+        Timer1.Enabled = True
+    End Sub
+
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        Try
+            'Attaches program to Skype.
+            Skype.Attach()
+            MsgBox("Successfully Connected to Skype! You can now use the tools tab.", MsgBoxStyle.Information)
+            Label1.ForeColor = Color.LimeGreen
+            Label1.Text = "Connected"
+            Label3.ForeColor = Color.LimeGreen
+            Label3.Text = My.Settings.AccountName
+            Label9.Visible = False
+            Label4.ForeColor = Color.LimeGreen
+            Label10.ForeColor = Color.LimeGreen
+            Label10.Text = Skype.CurrentUserProfile.MoodText
+            Button1.Enabled = False
+            PictureBox1.Visible = True
+            PictureBox1.Image = New System.Drawing.Bitmap(New IO.MemoryStream(New System.Net.WebClient().DownloadData("https://api.skype.com/users/" + Label3.Text + "/profile/avatar")))
+            PictureBox2.Visible = True
+            LinkLabel1.Visible = True
+
+
+        Catch ex As Exception
+
+
+
+        End Try
+
+
+    End Sub
+
+    Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        MsgBox("Thanks for using my skype tool! If there are any bugs or glitches, Please let me know :)!", MsgBoxStyle.Information)
+        If My.Settings.AccountName = "" Then Form2.Visible = True
+        If My.Settings.Satisfaction = "" Then Satisfacation_Reporter.Visible = True
+        My.Computer.Audio.Play(My.Resources.track_skypetool, AudioPlayMode.Background)
+
+
+
+    End Sub
+
+    Private Sub Label6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label6.Click
+        Tools.Visible = True
+    End Sub
+
+    Private Sub Label7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label7.Click
+        Presets.Visible = True
+
+    End Sub
+
+    Private Sub Label8_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label8.Click
+        Credits.Visible = True
+
+    End Sub
+
+    Private Sub Label10_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        MsgBox("All update notes are in Instructions.txt", MsgBoxStyle.Information)
+
+    End Sub
+
+    Private Sub Label5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label5.Click
+        Settings.Visible = True
+
+    End Sub
+
+    Private Sub Label11_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label11.Click
+
+    End Sub
+
+    Private Sub LinkLabel1_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
+        MsgBox("New Features:  " & vbNewLine _
+               & "-Finished MoodBot" & vbNewLine _
+               & "-Imported Mail and New Skype Libraries" & vbNewLine _
+               & "-Added 30+ presets" & vbNewLine _
+               & "-Added MoodBot Interval" & vbNewLine _
+               & "-Added Bug Reporter" & vbNewLine _
+               & "-General Code Cleanup" & vbNewLine _
+               & "-Added Profile Avatar Hub" & vbNewLine _
+               & "-Rearranged and cleaned up main menu" & vbNewLine _
+               & "-Changed Settings tab to 'Options'" & vbNewLine _
+               & "-Changed Presets+More tab to 'Experimental" & vbNewLine _
+               & "-Fixed 2 major crashing bugs" & vbNewLine _
+               & "-Major performance improvements" & vbNewLine _
+               & "-Fixed stretched screen and cut-off elements" & vbNewLine _
+               & "-Windows 10 Compatible" & vbNewLine _
+               & "-Implemented Error Provider")
+
+
+    End Sub
+
+    Private Sub PictureBox2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox2.Click
+        bugreport.Visible = True
+
+    End Sub
+
+    Private Sub Label9_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label9.Click
+
+    End Sub
+End Class
